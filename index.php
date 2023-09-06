@@ -23,7 +23,7 @@
                 <a class="nav-link active me-2" aria-current="page" href="#">Trang chủ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link booking me-2" href="#">Đặt phòng</a>
+                <a class="nav-link booking me-2" href="form_room.php">Đặt phòng</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,16 +63,16 @@
         <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30" effect="fade"
           navigation="true">
           <swiper-slide>
-            <img src="../Hotel_Management/image/IMG_15372.png"/>
+            <img src="image/IMG_93127.png"/>
           </swiper-slide>
           <swiper-slide>
-            <img src="../Hotel_Management/image/IMG_99736.png" />
+            <img src="image/IMG_99736.png" />
           </swiper-slide>
           <swiper-slide>
-            <img src="../Hotel_Management/image/IMG_93127.png" />
+            <img src="image/IMG_93127.png" />
           </swiper-slide>
           <swiper-slide>
-            <img src="../Hotel_Management/image/IMG_62045.png" />
+            <img src="image/IMG_62045.png" />
           </swiper-slide>
         </swiper-container>
       </div>
@@ -86,11 +86,11 @@
               <div class="row align-items-end">
                 <div class="col-lg-3 mb-3">
                   <lable class="form-label" style = "font-weight: 500;">Check-in</lable>
-                  <input type="date" class = "form-control shadow-none" id = "check-in">
+                  <input type="date" class = "form-control shadow-none" id = "check-in" require = "true">
                 </div>
                 <div class="col-lg-3 mb-3">
                   <lable class="form-label" style = "font-weight: 500;">Check-out</lable>
-                  <input type="date" class = "form-control shadow-none" id = "check-out">
+                  <input type="date" class = "form-control shadow-none" id = "check-out" require = "true">
                 </div>
                 <div class="col-lg-3 mb-3">
                   <lable class="form-label" style = "font-weight: 500;">Người lớn</lable>
@@ -124,7 +124,7 @@
         <!-- Room 1 -->
         <div class="col-lg-4 col-md-6 my-3">
             <div class="card border-0 shadow" style="width: 350px; margin:auto; ">
-              <img src="../Hotel_Management/image/IMG_67761.png" class="card-img-top" alt="...">
+              <img src="image/IMG_67761.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5>Phòng Standard</h5>
                 <h6 class="mb-4">
@@ -183,7 +183,7 @@
         <!-- Room 2 -->
         <div class="col-lg-4 col-md-6 my-3">
             <div class="card border-0 shadow" style="width: 350px; margin:auto; ">
-              <img src="../Hotel_Management/image/IMG_78809.png" class="card-img-top" alt="...">
+              <img src="image/IMG_78809.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5>Phòng Superior</h5>
                 <h6 class="mb-4">
@@ -242,7 +242,7 @@
         <!-- Room 3 -->
         <div class="col-lg-4 col-md-6 my-3">
             <div class="card border-0 shadow" style="width: 350px; margin:auto; ">
-              <img src="../Hotel_Management/image/IMG_39782.png" class="card-img-top" alt="...">
+              <img src="image/IMG_39782.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5>Phòng Suite</h5>
                 <h6 class="mb-4">
@@ -299,7 +299,7 @@
         </div>
 
         <div class="col-lg-12 text-center mt-5">
-            <a href="#" class= "btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
+            <a href="form_room.php" class= "btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
         </div>
       </div>
     </div>
@@ -332,13 +332,13 @@
             <br>
             <a href="#" class = "d-inline-block mb-3">
               <span class = "badge bg-light text-dark fs-6 p-2">
-                <i class="bi bi-facebook"></i>Facebook
+                <i class="bi bi-facebook"></i> Facebook
               </span>
             </a>
             <br>
             <a href="#" class = "d-inline-block mb-3">
               <span class = "badge bg-light text-dark fs-6 p-2">
-                <i class="bi bi-instagram"></i></i>Instagram
+                <i class="bi bi-instagram"></i></i> Instagram
               </span>
             </a>
 
@@ -352,7 +352,7 @@
       <div class="row">
         <h1 style="color: #333; text-align: center; margin-top: 50px;">Cảm ơn đã ghé thăm trang web của chúng tôi</h1>
         <p style="font-size: 16px; line-height: 1.5; color: #666; margin: 10px 0; text-align: center;">
-            Footer - Khách sạn Nghỉ Ngơi Xanh
+            Footer - Khách sạn Mường Thanh
         </p>
         <p style="font-size: 16px; line-height: 1.5; color: #666; margin: 10px 0; text-align: center;">
           Cảm ơn bạn đã ghé thăm Khách sạn của chúng tôi.
