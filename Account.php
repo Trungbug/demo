@@ -66,8 +66,12 @@ class Account{
 
     public function insert() {
         if(!$this->isExist()) {
-        
+            $id = DBHelper::execute("select max(customerid) as customerid from customer")->fetch_array(MYSQLI_ASSOC)['customerid'];
+            $query = "insert into account(username, password, customerid) values('$this->userName', '$this->password', $id)";
+            $result = DBHelper::execute($query);
+            return $result;
         }
+        return false;
     }
 
     public function edit() {

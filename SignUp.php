@@ -36,11 +36,11 @@
         
         if(isset($_POST['resigter'])) {
             if(!empty($password) && $password === $confirmPassword) {
-                $account = new Account($userName, $password);
+                $customer = new Customer($name, $email,  $phoneNumber, $gender);
+                $account = new Account($userName, $password, $customer);
                 if(!$account->isExist()) {
-                    $account->insert();
-                    $customer = new Customer($name, $phoneNumber, $email, $gender, $account);
                     $customer->insert();
+                    $account->insert();
                     echo 'Dang ky thanh cong';
                     //header('location: resigter.php');
                 }

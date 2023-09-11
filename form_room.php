@@ -14,9 +14,17 @@
                 <div class="form-group">
                     <label for="room-type">Loại phòng:</label>
                     <select id="room-type" name="room-type">
-                        <option value="standard">Standard</option>
-                        <option value="deluxe">Deluxe</option>
-                        <option value="suite">Suite</option>
+                        <option value="standard">All</option>
+                        <?php
+                            require('DBHelper.php');
+                            $query = "select * from roomtype";
+                            $result = DBHelper::execute($query);
+                        while($result != null && $row = $result->fetch_array(MYSQLI_ASSOC)) {
+                        ?>
+                            <option><?php echo $row['TypeName']?></option>
+                        <?php 
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="form-group">
@@ -24,12 +32,12 @@
                     <input type="number" id="guests" name="guests" min="1">
                 </div>
                 <div class="form-group">
-                    <label for="min-price">Giá tối thiểu (VNĐ):</label>
-                    <input type="number" id="min-price" name="min-price" min="0">
+                    <label for="min-price">Giá tối thiểu:</label>
+                    <input type="number" id="price" name="price" min="0">
                 </div>
                 <div class="form-group">
-                    <label for="max-price">Giá tối đa (VNĐ):</label>
-                    <input type="number" id="max-price" name="max-price" min="0">
+                    <label for="min-price">Giá tối đa:</label>
+                    <input type="number" id="price" name="price" min="0">
                 </div>
                 <button type="submit" name="search" id="search">Tìm kiếm</button>
             </form>
@@ -43,7 +51,7 @@
                 <th>Ảnh</th>
                 <th>Giá một đêm</th>
                 <th>Diện tích</th>
-                <th>Số lượng</th>
+                <th>Số người ở tối đa</th>
                 <th>Mô tả</th>
                 <th></th>
                 <th></th>
@@ -51,14 +59,20 @@
             </tr>
             <?php
                 require('Room.php');
+                
+                // if(isset($_POST['search'])) {
+                //     $roomType = isset($_POST['room-type']) ? $_POST['room-type'] : '';
+                //     $conditionRoomType = '';
+                //     $guests = isset($_POST['guests']) ? $_POST['guests'] : '';
+                //     $conditionGuests = ($guests == '' ? " Quantity like '%' " : " Quantity <= $guests ");
+                //     $price = isset($_POST['price']) ? $_POST['min-price'] : '';
+                //     $query = "select roomtypeid from roomtype where typename = '$roomType'";
+                //     $roomTypeId = DBHelper::execute($query)->fetch_array(MYSQLI_ASSOC)['roomtypeid'];
+                // }
 
-                $roomType = isset($_POST['room-type']) ? $_POST['room-type'] : '';
-                if($roomType != '') {
-                    $result = "select * from room where roomtype = '$roomType'";
-                }
-                else {
-                    $result = Room::getRoom();
-                }
+                $query = "select roomname, roomtypeid, image, pricepernight, area, quantity, description from room";
+                $result = DBHelper::execute($query);
+
                 if ($result != null) {
                     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                         $room = new Room();
