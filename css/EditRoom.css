@@ -1,0 +1,57 @@
+.edit-room-form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.edit-room-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.edit-room-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.edit-room-form input[type="text"],
+.edit-room-form input[type="number"],
+.edit-room-form select,
+.edit-room-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.edit-room-form select {
+    height: 40px;
+}
+
+.edit-room-form button[type="submit"],
+.edit-room-form button.cancel-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.edit-room-form button.cancel-button {
+    background-color: #e74c3c;
+}
+
+.edit-room-form button[type="submit"]:hover,
+.edit-room-form button.cancel-button:hover {
+    background-color: #2980b9;
+}
+

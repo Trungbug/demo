@@ -1,0 +1,110 @@
+/* Thiết lập kiểu cho trang quản lý phòng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Nút thêm phòng */
+.add-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+/* Hiển thị biểu mẫu thêm phòng khi cần */
+.add-room-form {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.add-room-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.add-room-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-room-form input[type="text"],
+.add-room-form input[type="number"],
+.add-room-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.add-room-form button[type="submit"],
+.add-room-form button.cancel-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-room-form button[type="submit"]:hover,
+.add-room-form button.cancel-button:hover {
+    background-color: #0056b3;
+}
+
+.add-room-form button.cancel-button {
+    background-color: #ccc;
+}
+
+.edit-button,
+.delete-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.edit-button {
+    background-color: red;
+}
+
+.edit-button:hover {
+    background-color: red;
+}
+.delete-button:hover {
+    background-color: #2980b9;
+}
