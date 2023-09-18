@@ -11,6 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/EditRoom.css">
     <title>Document</title>
+     <?php require('inc/links.php') ?>
 </head>
 <?php
 $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : false;
@@ -24,7 +25,7 @@ if ($roomId) {
         $pricePerNight = $row['PricePerNight'];
         $area = $row['Area'];
         $quantity = $row['Quantity'];
-        $description = $row['Description'];
+        $status = $row['status'];
     }
     $imageDataUri = "data:image/jpeg;base64," . base64_encode($image);
 
@@ -37,7 +38,9 @@ if ($roomId) {
     echo 'Error lay id: ' . $roomId;
 }
 ?>
-<body>
+<body class="bg-white">
+    <?php require('inc/header.php') ?>
+
     <div class="edit-room-form">
         <h2>Sửa thông tin phòng</h2>
         <form id="room-form" method="post" action="ProcessEditRoom.php">
@@ -63,21 +66,21 @@ if ($roomId) {
             <input type="number" id="room-area" name="room-area" value="<?php echo $area ?>" required>
 
             <label for="room-max-guests">Số người ở tối đa:</label>
-            <input type="number" id="room-max-guests" name="room-max-guests" value="<?php echo $quantity ?>" required>
-
-            <label for="room-description">Mô tả:</label>
-            <textarea id="room-description" name="room-description" rows="8" cols="50"required><?php echo $description ?></textarea>
+            <input type="number" id="room-max-guests" min="1" name="room-max-guests" value="<?php echo $quantity ?>" required>
 
             <label for="room-status">Trạng Thái:</label>
             <select id="room-status" name="room-status" required>
-                <option value="trống">Trống</option>
-                <option value="đã đặt">Đã Đặt</option>
+                <option value="<?php echo $status ?>"><?php echo $status ?></option>
+                <option value="Trống">Trống</option>
+                <option value="Bảo trì">Bảo trì</option>
+                <option value="Đang ở">Đang ở</option>
             </select>
 
             <button type="submit">Lưu</button>
-            <button type="button" class="cancel-button">Hủy</button>
+            <button type="button" class="cancel-button" onclick="history.go(-1)">Hủy</button>
         </form>
     </div>
+    <?php require('inc/scripts.php') ?>
 </body>
 
 <script>
@@ -88,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function removeduplicate()
 {
     var mycode = {};
-    $("select[id='room-type'] > option").each(function () {
+    $("select[id='room-status'] > option").each(function () {
         if(mycode[this.text]) {
             $(this).remove();
         } else {

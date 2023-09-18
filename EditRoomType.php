@@ -22,10 +22,13 @@ if($id) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Loại Phòng</title>
+    <?php require('inc/links.php') ?>
     <link rel="stylesheet" href="css/EditTypeRoom.css">
 </head>
 <body>
-    <h1>Thêm Loại Phòng</h1>
+    <?php require('inc/header.php') ?>
+
+    <h1>Sửa Loại Phòng</h1>
     <form action="ProcessEditRoomType.php" method="POST">
         <label for="ten-loai-phong">Tên Loại Phòng:</label>
         <input type="text" id="room-type" name="room-type" value = "<?php echo $typeName ?>"required>
@@ -33,7 +36,10 @@ if($id) {
         <label for="mo-ta">Mô Tả:</label>
         <textarea id="description" name="description" rows="4" required><?php echo $description ?></textarea>
 
-        <input type="submit" value="Lưu">
+        <button type="submit" value="Lưu" class="btn btn-sm rounded-pill btn-primary">Lưu</button>
+        <button type="button" value="Hủy" class="btn btn-sm rounded-pill btn-danger" onclick="history.go(-1)">Hủy</button>
     </form>
+
+    <?php require('inc/scripts.php') ?>
 </body>
 </html>

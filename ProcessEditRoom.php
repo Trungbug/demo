@@ -11,14 +11,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $roomPrice = isset($_POST['room-price']) ? $_POST['room-price'] : false;
     $roomArea = isset($_POST['room-area']) ? $_POST['room-area'] : false;
     $maxGuests = isset($_POST['room-max-guests']) ? $_POST['room-max-guests'] : false;
-    $description = isset($_POST['room-description']) ? $_POST['room-description'] : false;
+    $roomStatus =  isset($_POST['room-status']) ? $_POST['room-status'] : false;
+   
     
     $q = "select roomtypeid from roomtype where typename = '$selectedRoomTypes'";
     $r = DBHelper::execute($q);
 
     $roomTypeID = $r->fetch_array(MYSQLI_ASSOC)['roomtypeid'];
 
-    $query = "update room set roomname = '$roomName', roomtypeid = $roomTypeID, pricepernight = $roomPrice, area = $roomArea, quantity = $maxGuests, description = '$description' where RoomId = $roomId";
+    $query = "update room set roomname = '$roomName', roomtypeid = $roomTypeID, pricepernight = $roomPrice, area = $roomArea, quantity = $maxGuests, status = '$roomStatus' where RoomId = $roomId";
     $result = DBHelper::execute($query);
 
     if($roomImage != "C:\\\\ProgramData\\\\MySQL\\\\MySQL Server 8.0\\\\Uploads\\\\") {
@@ -27,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if($result) {
-        header('location: RoomManagement.php');
+        header('location: MyRoom.php');
     }
     else {
         echo 'Loi cap nhap phong';

@@ -12,7 +12,7 @@ $query = "update roomtype set typename = '$roomType', description = '$descriptio
 $result = DBHelper::execute($query);
 
 if($result) {
-    header('location: TypeRoom.php');
+    header('location: MyRoomType.php');
 }
 
 ?>

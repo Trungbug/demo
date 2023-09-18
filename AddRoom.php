@@ -8,18 +8,20 @@
         $roomPrice = isset($_POST['room-price']) ? $_POST['room-price'] : false;
         $roomArea = isset($_POST['room-area']) ? $_POST['room-area'] : false;
         $maxGuests = isset($_POST['room-max-guests']) ? $_POST['room-max-guests'] : false;
-        $description = isset($_POST['room-description']) ? $_POST['room-description'] : false;
-        
+        $roomStatus =  isset($_POST['room-status']) ? $_POST['room-status'] : false;
+    
         $q = "select roomtypeid from roomtype where typename = '$selectedRoomTypes'";
         $r = DBHelper::execute($q);
 
         $roomTypeID = $r->fetch_array(MYSQLI_ASSOC)['roomtypeid'];
 
-        $query = "insert into room(roomname, roomtypeid, image, pricepernight, area, quantity, description) values('$roomName', $roomTypeID, LOAD_FILE('$roomImage'), $roomPrice, $roomArea, $maxGuests, '$description')";
-        $result = DBHelper::execute($query);
+        if($roomName && $selectedRoomTypes && $roomImage && $roomPrice && $roomArea && $maxGuests && $roomStatus) {
+            $query = "insert into room(roomname, roomtypeid, image, pricepernight, area, quantity, status) values('$roomName', $roomTypeID, LOAD_FILE('$roomImage'), $roomPrice, $roomArea, $maxGuests, '$roomStatus')";
+            $result = DBHelper::execute($query);
 
-        if($result) {
-            header('location: RoomManagement.php');
+            if($result) {
+                header('location: MyRoom.php');
+            }
         }
     }
 ?>

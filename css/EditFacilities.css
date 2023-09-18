@@ -1,0 +1,57 @@
+.edit-facilities-form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.edit-facilities-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.edit-facilities-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.edit-facilities-form input[type="text"],
+.edit-facilities-form input[type="number"],
+.edit-facilities-form select,
+.edit-facilities-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.edit-facilities-form select {
+    height: 40px;
+}
+
+.edit-facilities-form button[type="submit"],
+.edit-facilities-form button.cancel-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.edit-facilities-form button.cancel-button {
+    background-color: #e74c3c;
+}
+
+.edit-facilities-form button[type="submit"]:hover,
+.edit-facilities-form button.cancel-button:hover {
+    background-color: #2980b9;
+}
+

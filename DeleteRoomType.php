@@ -6,7 +6,7 @@ if($id) {
     $query = "delete from roomtype where roomtypeid = $id";
     $result = DBHelper::execute($query);
     if($result) {
-        header('location: TypeRoom.php');
+        header('location: MyRoomType.php');
     }
 }
 ?>
