@@ -24,10 +24,13 @@
                             <a class="nav-link text-white" href="MyRoomType.php">Quản lý loại phòng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Khách hàng</a>
+                            <a class="nav-link text-white" href="Facilities.php">Cơ sở vật chất</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="Facilities.php">Cơ sở vật chất</a>
+                            <a class="nav-link text-white" href="ManagerEmployee.php">Quản lý nhân viên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="ManagerCustomer.php">Quản lý khách hàng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="Settings.php">Cài đặt</a>

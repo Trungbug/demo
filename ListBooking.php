@@ -32,7 +32,7 @@
                 <?php
                     require('DBHelper.php');
     
-                    $query = "select * from booking where status = 'Trống'";
+                    $query = "select * from booking where";
                     $result = DBHelper::execute($query);
 
                     while($result != null && $row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -45,7 +45,6 @@
                     <tr>
                         <td><?php echo $customer?></td>
                         <td><?php echo $room ?></td>
-                        <td><?php echo $row['status']?></td>
                         <td><?php echo $row['CheckInDate']?></td>
                         <td><?php echo $row['CheckOutDate']?></td>
                         <td><?php echo $row['NumberOfPeople'] ?></td>

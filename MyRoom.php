@@ -66,7 +66,7 @@
                                             <td><?php echo $description ?></td>
                                             <td><?php echo $row['status'] ?></td>
                                             <td><a href="EditRoom.php?roomId=<?php echo $row['RoomId'];?>" class="btn btn-sm rounded-pill btn-primary">Sửa</a></td>
-                                            <td><a href="DeleteRoom.php?roomId=<?php echo $row['RoomId'];?>" class="btn btn-sm rounded-pill btn-danger">Xóa</a></td>
+                                            <td><a href="DeleteRoom.php?roomId=<?php echo $row['RoomId'];?>" class="btn btn-sm rounded-pill btn-danger" onclick="return confirmDelete();" >Xóa</a></td>
                                         </tr>
                                         <?php
                                         }
@@ -87,6 +87,7 @@
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        
                         <form id="room-form" method = "post" action = "AddRoom.php" autocomplete="off">
                             <div class="modal-body">
                                 <div class="row">
@@ -140,10 +141,21 @@
                                     </div>
                                     
                                     <div class="col-12 mb-3">
-                                        <label class="form-label fw-bold">Tiện nghi</label>
+                                        <label class="form-label fw-bold">Cơ sở vật chất</label>
                                         <div class="row">
                                             <?php
-                                                
+                                                $truyvan = "select * from hotel_management.facilities";
+                                                $ketqua = DBHelper::execute($truyvan);
+                                                while($hang = $ketqua->fetch_array(MYSQLI_ASSOC)) {
+                                                    echo "
+                                                        <div class = 'col-md-3'>
+                                                            <label>
+                                                                <input type='checkbox' name='features[]' value='$hang[name]' class='form-check-input shadow-none'>
+                                                                $hang[name]
+                                                            </label>
+                                                        </div>
+                                                    ";
+                                                }
                                             ?>
                                         </div>
                                     </div>
@@ -159,6 +171,33 @@
 
         </div>
     </div>
+    <script>
+        const open_add = document.querySelector('.js-add');
+        const overlay = document.querySelector('.js-overlay');
+        const close_icon = document.querySelector('.js-close');
+        open_add.addEventListener('click', function (e) {
+            e.preventDefault();
+            content_form.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+        close_icon.addEventListener('click',function(){
+            content_form.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+        function hideForm() {
+            content_form.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        function confirmDelete() {
+        var result = confirm('Cảnh Báo : Bạn có muốn xóa phòng?');
+        if (result === true) {
+            header("location: MyRoom.php");
+            return true;
+        } else {
+            return false;
+        }
+    }
+    </script>
     <?php require('inc/scripts.php') ?>
 </body>
 </html>

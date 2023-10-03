@@ -47,7 +47,7 @@
                                             <td><?php echo $row['TypeName']?></td>
                                             <td><?php echo $row['Description'] ?></td>
                                             <td><a href="EditRoomType.php?id=<?php echo $row['RoomTypeId'] ?>" class="btn btn-sm rounded-pill btn-primary">Sửa</a></td>
-                                            <td><a href="DeleteRoomType.php?id=<?php echo $row['RoomTypeId'] ?>" class="btn btn-sm rounded-pill btn-danger">Xóa</a></td>
+                                            <td><a href="DeleteRoomType.php?id=<?php echo $row['RoomTypeId'] ?>" class="btn btn-sm rounded-pill btn-danger" onclick="return confirmDelete();" >Xóa</a></td>
                                         </tr>
                                         <?php
                                         }
@@ -92,6 +92,33 @@
             </div>
         </div>
     </div>
+    <script>
+        const open_add = document.querySelector('.js-add');
+        const overlay = document.querySelector('.js-overlay');
+        const close_icon = document.querySelector('.js-close');
+        open_add.addEventListener('click', function (e) {
+            e.preventDefault();
+            content_form.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+        close_icon.addEventListener('click',function(){
+            content_form.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+        function hideForm() {
+            content_form.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        function confirmDelete() {
+        var result = confirm('Cảnh Báo : Nếu bạn đồng ý xóa đồng nghĩa bạn sẽ xóa các phòng có loại phòng này!Bạn có đồng ý?');
+        if (result === true) {
+            header("location: MyRoomType.php");
+            return true;
+        } else {
+            return false;
+        }
+    }
+    </script>
     <?php require('inc/scripts.php') ?>
 </body>
 </html>

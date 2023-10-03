@@ -51,7 +51,7 @@
                                             <td><?php echo number_format($row['price'], 0, '.', ',') . 'đ' ?></td>
                                             <td><?php echo number_format($row['TotalPrice'], 0, '.', ',') . 'đ' ?></td>
                                             <td><a href="EditFacilities.php?id=<?php echo $row['id'] ?>" class="btn btn-sm rounded-pill btn-primary">Sửa</a></td>
-                                            <td><a href="DeleteFacilities.php?id=<?php echo $row['id'] ?>" class="btn btn-sm rounded-pill btn-danger">Xóa</a></td>
+                                            <td><a href="DeleteFacilities.php?id=<?php echo $row['id'] ?>" class="btn btn-sm rounded-pill btn-danger" onclick="return confirmDelete();" >Xóa</a></td>
                                         </tr>
                                         <?php
                                         }
@@ -101,6 +101,33 @@
             </div>
         </div>
     </div>
+    <script>
+        const open_add = document.querySelector('.js-add');
+        const overlay = document.querySelector('.js-overlay');
+        const close_icon = document.querySelector('.js-close');
+        open_add.addEventListener('click', function (e) {
+            e.preventDefault();
+            content_form.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+        close_icon.addEventListener('click',function(){
+            content_form.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+        function hideForm() {
+            content_form.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        function confirmDelete() {
+        var result = confirm('Cảnh Báo : Bạn có muốn xóa?');
+        if (result === true) {
+            header("location: Facilities.php");
+            return true;
+        } else {
+            return false;
+        }
+    }
+    </script>
     <?php require('inc/scripts.php') ?>
 </body>
 </html>
