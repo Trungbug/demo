@@ -18,6 +18,12 @@
                             <a class="nav-link text-white" href="DashBoard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-white" href="Booked.php">Quản lý đặt phòng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="CheckOut.php">CheckOut</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="MyRoom.php">Quản lý phòng</a>
                         </li>
                         <li class="nav-item">
